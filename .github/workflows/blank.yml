@@ -2,12 +2,11 @@ name: Go Program Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   pull_request:
-    branches:
-      - main
-
+    branches: ["main"]
+    
+    
 jobs:
   build:
     runs-on: ubuntu-latest  # Specifies the runner OS
