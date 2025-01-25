@@ -17,8 +17,4 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.14.0'
-<<<<<<< HEAD
       - run: go run helloworld.go
-=======
-      - run: go run helloworld.go
->>>>>>> 18303640ea6fa5940938fda37be84b3c656f16a5
