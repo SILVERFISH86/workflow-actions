@@ -28,7 +28,9 @@ jobs:
           go-version: '1.14.0'  # Set the Go version to 1.14.0
 
       - name: Run Go Program
-        run: go run helloworld.go  # Run your Go program
+        run: |
+          echo "MY_SECRET in Go: $MY_SECRET"  # Print the secret value in this step to confirm it is available
+          go run helloworld.go  # Run your Go program
 
 
 
