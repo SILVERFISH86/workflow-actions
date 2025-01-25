@@ -1,20 +1,49 @@
-name: simple-workflow 
+name: Go Program Workflow
+
 on:
   push:
     branches:
       - main
-      - develop
-    
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3 #{owner}/{repository}@{ref}
-        with:
-         ref: main  #If you want to control which branch of your repository is checked out, you can specify it explicitly:
+    runs-on: ubuntu-latest  # Specifies the runner OS
 
-      - name: Setup GO Version
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: main  # Checkout the 'main' branch
+
+      - name: Set secret as environment variable
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}  # Access the secret from GitHub Secrets and set it as an environment variable
+
+      - name: Setup Go Version
         uses: actions/setup-go@v2
         with:
-          go-version: '1.14.0'
-      - run: go run helloworld.go
+          go-version: '1.14.0'  # Set the Go version to 1.14.0
+
+      - name: Run Go Program
+        run: go run helloworld.go  # Run your Go program
+
+
+        # jobs:
+            #   build:
+            #     runs-on: ubuntu-latest
+            #     steps:
+            #       - uses: actions/checkout@v2 #{owner}/{repository}@{ref}
+            #     #   - uses: ./action-a
+            #     #   with:
+            #     #     MY_NAME: "Mona"
+            #       with:
+            #          ref: main  #If you want to control which branch of your repository is checked out, you can specify it explicitly:
+            
+            #       - name: Setup GO Version
+            #         uses: actions/setup-go@v2
+            #         with:
+            #           go-version: '1.14.0'
+            #       - run: go run helloworld.go
