@@ -19,7 +19,7 @@ jobs:
           ref: main  # Checkout the 'main' branch
 
       - name: Set secret as environment variable
-        run: echo "MY_SECRET=${{ secrets.MY_SECRET }}"
+        run: echo "MY_SECRET=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
         # This step sets the environment variable MY_SECRET by appending it to $GITHUB_ENV, which will persist it for subsequent steps
 
       - name: Setup Go Version
