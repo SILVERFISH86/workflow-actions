@@ -1,12 +1,13 @@
-name: Go Program Workflow
+nname: Go Program Workflow
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
-    
-    
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest  # Specifies the runner OS
@@ -28,7 +29,6 @@ jobs:
 
       - name: Run Go Program
         run: go run helloworld.go  # Run your Go program
-
 
         # jobs:
             #   build:
