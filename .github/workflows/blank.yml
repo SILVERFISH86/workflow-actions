@@ -33,7 +33,7 @@ jobs:
           go run helloworld.go  # Run your Go program
 
 
-  test:
+  test:    # TEST JOB 
     runs-on: ubuntu-latest
     needs: [build]
 
